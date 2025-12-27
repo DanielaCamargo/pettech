@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+
+services:
+
+  db:
+    image: postgres:15
+    container_name: pettech_db
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: meunome
+      POSTGRES_DB: db_pettech
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
